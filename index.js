@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const credentials = require('./config.js');
 const app = express();
-const port = 9000;
+const port = process.env.PORT || 9000;
 const user = process.env.EMAIL_USER || credentials.USER;
 const pass = process.env.EMAIL_PASS || credentials.PASS;
 
@@ -46,7 +46,7 @@ app.post('/send', (req,res) => {
   smtpTransport.sendMail(mailOptions, (error, response) => {
     if(error) {
       res.send(error)
-    }else {
+    } else {
       res.send('Success')
     }
     smtpTransport.close();
