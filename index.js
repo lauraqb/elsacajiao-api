@@ -5,6 +5,8 @@ const cors = require('cors');
 const credentials = require('./config.js');
 const app = express();
 const port = 9000;
+const user = process.env.EMAIL_USER || credentials.USER;
+const pass = process.env.EMAIL_PASS || credentials.PASS;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,8 +29,8 @@ app.post('/send', (req,res) => {
       service: 'Gmail',
       port: 465,
       auth: {
-        user: credentials.USER,
-        pass: credentials.PASS
+        user: user,
+        pass: pass
       }
   });
 
