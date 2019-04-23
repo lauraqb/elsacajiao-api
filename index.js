@@ -37,7 +37,7 @@ app.post('/send', (req,res) => {
   var mailOptions = {
       from: data.email,
       to: 'lauratristan@gmail.com',
-      subject: 'MENSAJE EN elsacajiao.com',
+      subject: data.subject,
       html: `<p>${data.name}</p>
             <p>${data.email}</p>
             <p>${data.message}</p>`
