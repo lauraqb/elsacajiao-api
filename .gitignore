@@ -12,7 +12,7 @@
 /build
 
 # misc
-config.json
+#onfig.json
 .DS_Store
 .env.local
 .env.development.local
